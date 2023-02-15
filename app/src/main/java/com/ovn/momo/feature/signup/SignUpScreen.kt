@@ -10,7 +10,7 @@ import com.ovn.momo.core.navigation.MomoScreens
 @Composable
 fun MomoSignUp(
 	composeNavigator: AppComposeNavigator,
-	viewModel: MomoSignUpViewModel = hiltViewModel()
+	viewModel: SignUpViewModel = hiltViewModel()
 ) {
 	Button(
 		onClick = {
