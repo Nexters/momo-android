@@ -5,7 +5,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class MomoSignUpViewModel @Inject constructor(
+class SignUpViewModel @Inject constructor(
 
 ) : ViewModel() {
 
