@@ -84,6 +84,3 @@ lint/outputs/
 lint/tmp/
 # lint/reports/
 /.idea/git_toolbox_prj.xml
-/.idea/.name
-/.idea/codeStyles/codeStyleConfig.xml
-/.idea/codeStyles/Project.xml
