@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 import com.ovn.momo.core.util.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
 @HiltViewModel
@@ -18,7 +20,8 @@ class SignUpViewModel @Inject constructor(
 
 	private val userPwCheck = MutableStateFlow("")
 
-	val toastMessage = MutableStateFlow("")
+	private val _toastMessage = MutableStateFlow("")
+	val toastMessage: StateFlow<String> get()=_toastMessage.asStateFlow()
 
 	fun setUserEmail(email: String) {
 		userEmail.value = email
@@ -35,6 +38,10 @@ class SignUpViewModel @Inject constructor(
 		Log.d("UserPwCheck", userPwCheck.value)
 	}
 
+	fun setToastMessage(message: String) {
+		_toastMessage.value = message
+	}
+
 	fun isSignUpSuccess(): Boolean {
 		if (isEmailEmpty()) return false
 		if (isNotSatisfyEmailPattern()) return false
@@ -42,7 +49,6 @@ class SignUpViewModel @Inject constructor(
 		if (isNotSatisfyPasswordLength()) return false
 		if (isNotSatisfyPasswordValidation()) return false
 		if (isPasswordNotSame()) return false
-		toastMessage.value = "통과"
 		return true
 	}
 
@@ -79,13 +85,13 @@ class SignUpViewModel @Inject constructor(
 	}
 
 	fun initToastMessage() {
-		toastMessage.value = ""
+		_toastMessage.value = ""
 	}
 
 	// 조건을 만족하면 toast message와 함께 true, 아니면 false 반환
 	private fun getResultOfCondition(condition: Boolean, message: String): Boolean =
 		if (condition) {
-			toastMessage.value = message
+			_toastMessage.value = message
 			true
 		} else {
 			false

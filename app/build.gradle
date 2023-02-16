@@ -34,10 +34,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
-        freeCompilerArgs += [
-                "-Xopt-in=kotlin.RequiresOptIn"
-        ]
-
     }
     buildFeatures {
         compose true
@@ -67,6 +63,8 @@ dependencies {
 
     // hilt
     implementation "com.google.dagger:hilt-android:2.44"
+    implementation 'androidx.navigation:navigation-common-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-runtime-ktx:2.5.3'
     kapt "com.google.dagger:hilt-compiler:2.44"
     implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
 
@@ -84,7 +82,4 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
-
-    testImplementation "org.mockito:mockito-core:4.0.0"
-    testImplementation "org.mockito:mockito-inline:3.8.0"
 }
