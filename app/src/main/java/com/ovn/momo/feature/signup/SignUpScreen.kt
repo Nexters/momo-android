@@ -16,7 +16,6 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -25,8 +24,7 @@ import com.ovn.momo.core.common_ui.CustomOutlinedTextField
 import com.ovn.momo.core.common_ui.MainRoundBorderButton
 import com.ovn.momo.core.navigation.AppComposeNavigator
 import com.ovn.momo.core.navigation.MomoScreens
-import com.ovn.momo.feature.theme.montserrat
-import com.ovn.momo.feature.theme.pretendard
+import com.ovn.momo.feature.theme.*
 
 @OptIn(ExperimentalLifecycleComposeApi::class)
 @Composable
@@ -48,28 +46,22 @@ fun SignUpScreen(
 
 		Text(
 			text = "간단한 출석체크",
-			color = colorResource(id = color.gray_800),
-			fontSize = 28.sp,
-			fontFamily = pretendard,
-			fontWeight = FontWeight.Bold
+			style = Typography.h1
 		)
 		Spacer(modifier = Modifier.height(10.dp))
 
 		Text(
 			text = "MDMY",
 			color = Color.Black,
-			fontSize = 34.sp,
-			fontFamily = montserrat,
-			fontWeight = FontWeight.Bold
+			style = mdmyTextStyle
 		)
 		Spacer(modifier = Modifier.height(32.dp))
 
 		Text(
 			text = "이메일",
-			fontSize = 16.sp,
-			fontFamily = pretendard,
-			color = Color(color = color.gray_500),
-			fontWeight = FontWeight.Bold
+			style = Typography.body1,
+			fontWeight = FontWeight.Bold,
+			color = FontGray500,
 		)
 		Spacer(modifier = Modifier.height(10.dp))
 
@@ -85,11 +77,11 @@ fun SignUpScreen(
 
 		Text(
 			text = "비밀번호",
-			fontSize = 16.sp,
-			fontFamily = pretendard,
-			color = Color(color = color.gray_500),
+			style = Typography.body1,
+			color = FontGray500,
 			fontWeight = FontWeight.Bold
 		)
+
 		Spacer(modifier = Modifier.height(10.dp))
 
 		CustomOutlinedTextField(
@@ -118,8 +110,7 @@ fun SignUpScreen(
 		) {
 
 			if (viewModel.isSignUpSuccess()) {
-				composeNavigator.navigate(MomoScreens.SignUpSecurityCode.name)
-
+//				composeNavigator.navigate(MomoScreens.SignUpSecurityCode.name)
 			}
 		}
 
@@ -131,12 +122,15 @@ fun SignUpScreen(
 		) {
 			Text(
 				text = "이미 가입했다면?",
-				color = colorResource(color.gray_600)
+				color = FontGray600
 			)
+
 			Spacer(modifier = Modifier.width(10.dp))
+
 			Text(
 				text = "로그인 하기",
 				color = colorResource(color.black),
+				style = Typography.body1,
 				fontWeight = FontWeight.Bold,
 				modifier = Modifier
 					.clickable {
@@ -153,8 +147,9 @@ fun SignUpScreen(
 		) {
 			Text(
 				text = AnnotatedString("로그인에 문제가 있나요?"),
+				style = Typography.body1,
 				fontWeight = FontWeight.Bold,
-				color = colorResource(color.gray_900),
+				color = FontGray550,
 				modifier = Modifier
 					.clickable {
 						viewModel.setToastMessage("운영진에게 문의해주세요.")
