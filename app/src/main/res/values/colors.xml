@@ -7,16 +7,4 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
-    <color name="gray_800">#222222</color>
-    <color name="main_color">#946BEA</color>
-    <color name="textfield_unfocused_color">#F8F8F9</color>
-    <color name="textfield_focused_color">#F8F8FE</color>
-    <color name="textfield_border_unfocused_color">#F8F8F9</color>
-    <color name="textfield_border_focused_color">#D5CCEE</color>
-    <color name="textfield_border_error_color">#F15A50</color>
-    <color name="basic_text_color">#565656</color>
-    <color name="gray_500">#565656</color>
-    <color name="gray_600">#616161</color>
-    <color name="gray_900">#999999</color>
 </resources>

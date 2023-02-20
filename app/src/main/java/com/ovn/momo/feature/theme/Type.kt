@@ -9,7 +9,7 @@ import androidx.compose.ui.unit.sp
 val Typography = Typography(
 	h1 = TextStyle(
 		fontFamily = FontFamily.Default,
-		fontWeight = FontWeight.Normal,
+		fontWeight = FontWeight.Bold,
 		fontSize = 28.sp
 	),
 	h2 = TextStyle(
@@ -28,13 +28,19 @@ val Typography = Typography(
 		fontSize = 18.sp
 	),
 	body1 = TextStyle(
-		fontFamily = FontFamily.Default,
+		fontFamily = pretendard,
 		fontWeight = FontWeight.Normal,
 		fontSize = 16.sp
 	),
 	body2 = TextStyle(
-		fontFamily = FontFamily.Default,
+		fontFamily = pretendard,
 		fontWeight = FontWeight.Normal,
 		fontSize = 14.sp
 	)
+)
+
+val mdmyTextStyle = TextStyle(
+	fontFamily = montserrat,
+	fontWeight = FontWeight.Bold,
+	fontSize = 34.sp
 )
