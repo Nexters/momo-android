@@ -28,6 +28,7 @@ import com.ovn.momo.core.navigation.MomoScreens
 import com.ovn.momo.feature.theme.montserrat
 import com.ovn.momo.feature.theme.pretendard
 
+@OptIn(ExperimentalLifecycleComposeApi::class)
 @Composable
 fun SignUpScreen(
 	composeNavigator: AppComposeNavigator,
@@ -74,6 +75,8 @@ fun SignUpScreen(
 
 		CustomOutlinedTextField(
 			placeHolder = "넥스터즈 가입 시 메일주소를 입력하세요.",
+			isError = viewModel.userEmailError.collectAsStateWithLifecycle(),
+			errorMsg = viewModel.userEmailErrorMsg.collectAsStateWithLifecycle()
 		) { email ->
 			viewModel.setUserEmail(email)
 		}
@@ -91,7 +94,8 @@ fun SignUpScreen(
 
 		CustomOutlinedTextField(
 			placeHolder = "비밀번호를 입력해주세요",
-			textVisualTransformation = PasswordVisualTransformation()
+			textVisualTransformation = PasswordVisualTransformation(),
+			isError = viewModel.userPwError.collectAsStateWithLifecycle(),
 		) { password ->
 			viewModel.setUserPw(password)
 		}
@@ -100,7 +104,9 @@ fun SignUpScreen(
 
 		CustomOutlinedTextField(
 			placeHolder = "비밀번호 재입력",
-			textVisualTransformation = PasswordVisualTransformation()
+			textVisualTransformation = PasswordVisualTransformation(),
+			isError = viewModel.userPwError.collectAsStateWithLifecycle(),
+			errorMsg = viewModel.userPwErrorMsg.collectAsStateWithLifecycle()
 		) { passwordCheck ->
 			viewModel.setUserPwCheck(passwordCheck)
 		}
@@ -108,10 +114,12 @@ fun SignUpScreen(
 		Spacer(modifier = Modifier.height(20.dp))
 
 		MainRoundBorderButton(
-			"가입하기", 60,  6
+			"가입하기", 60, 6
 		) {
+
 			if (viewModel.isSignUpSuccess()) {
-//				composeNavigator.navigate()
+				composeNavigator.navigate(MomoScreens.SignUpSecurityCode.name)
+
 			}
 		}
 

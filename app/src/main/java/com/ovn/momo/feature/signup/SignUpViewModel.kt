@@ -3,7 +3,6 @@ package com.ovn.momo.feature.signup
 import android.util.Log
 import androidx.core.util.PatternsCompat
 import androidx.lifecycle.ViewModel
-import com.ovn.momo.core.util.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -15,8 +14,18 @@ class SignUpViewModel @Inject constructor(
 
 ) : ViewModel() {
 	private val userEmail = MutableStateFlow("")
+	private val _userEmailError = MutableStateFlow(false)
+	val userEmailError get() = _userEmailError.asStateFlow()
+
+	private val _userEmailErrorMsg = MutableStateFlow("")
+	val userEmailErrorMsg get() = _userEmailErrorMsg.asStateFlow()
 
 	private val userPw = MutableStateFlow("")
+	private val _userPwError = MutableStateFlow(false)
+	val userPwError get() = _userPwError.asStateFlow()
+
+	private val _userPwErrorMsg = MutableStateFlow("")
+	val userPwErrorMsg get() = _userPwErrorMsg.asStateFlow()
 
 	private val userPwCheck = MutableStateFlow("")
 
@@ -54,34 +63,34 @@ class SignUpViewModel @Inject constructor(
 
 	fun isEmailEmpty(): Boolean {
 		val condition = userEmail.value.isEmpty()
-		return getResultOfCondition(condition, EMAIL_EMPTY)
+		return getResultOfEmailCondition(condition, EMAIL_EMPTY)
 	}
 
 	fun isNotSatisfyEmailPattern(): Boolean {
 		val condition = !PatternsCompat.EMAIL_ADDRESS.matcher(userEmail.value).matches()
-		return getResultOfCondition(condition, EMAIL_PATTERN_NOT_SATISFIED)
+		return getResultOfEmailCondition(condition, EMAIL_PATTERN_NOT_SATISFIED)
 	}
 
 	fun isPasswordEmpty(): Boolean {
 		val condition = userPw.value.isEmpty()
-		return getResultOfCondition(condition, PASSWORD_EMPTY)
+		return getResultOfPwCondition(condition, PASSWORD_EMPTY)
 	}
 
 	fun isNotSatisfyPasswordLength(minLen: Int = 8, maxLen: Int = 20): Boolean {
 		val length = userPw.value.length
 		val condition = length < minLen || length > maxLen
-		return getResultOfCondition(condition, PASSWORD_LENGTH_NOT_SATISFIED)
+		return getResultOfPwCondition(condition, PASSWORD_LENGTH_NOT_SATISFIED)
 	}
 
 	fun isNotSatisfyPasswordValidation(): Boolean {
 		val reg = Regex("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,20}")
 		val condition = !userPw.value.matches(reg)
-		return getResultOfCondition(condition, PASSWORD_VALIDATION_NOT_SATISFIED)
+		return getResultOfPwCondition(condition, PASSWORD_VALIDATION_NOT_SATISFIED)
 	}
 
 	fun isPasswordNotSame(): Boolean {
 		val condition = userPw.value != userPwCheck.value
-		return getResultOfCondition(condition, PASSWORD_NOT_SAME)
+		return getResultOfPwCondition(condition, PASSWORD_NOT_SAME)
 	}
 
 	fun initToastMessage() {
@@ -89,11 +98,16 @@ class SignUpViewModel @Inject constructor(
 	}
 
 	// 조건을 만족하면 toast message와 함께 true, 아니면 false 반환
-	private fun getResultOfCondition(condition: Boolean, message: String): Boolean =
-		if (condition) {
-			_toastMessage.value = message
-			true
-		} else {
-			false
-		}
+	private fun getResultOfEmailCondition(condition: Boolean, errorMsg: String): Boolean {
+		_userEmailError.value = condition
+		_userEmailErrorMsg.value = if (condition) errorMsg else ""
+		return condition
+	}
+
+	// 조건을 만족하면 toast message와 함께 true, 아니면 false 반환
+	private fun getResultOfPwCondition(condition: Boolean, errorMsg: String): Boolean {
+		_userPwError.value = condition
+		_userPwErrorMsg.value = if (condition) errorMsg else ""
+		return condition
+	}
 }

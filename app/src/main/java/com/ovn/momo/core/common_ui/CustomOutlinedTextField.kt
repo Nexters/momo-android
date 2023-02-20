@@ -1,11 +1,13 @@
 package com.ovn.momo.core.common_ui
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
@@ -37,8 +39,10 @@ fun CustomOutlinedTextField(
 	textFontFamily: FontFamily = pretendard,
 	placeHolder: String = "",
 	textVisualTransformation: VisualTransformation = VisualTransformation.None,
-	valueChangeListener: (value: String) -> Unit
-) {
+	isError: State<Boolean> = remember { mutableStateOf(false) },
+	errorMsg: State<String> = remember { mutableStateOf("") },
+	valueChangeListener: (value: String) -> Unit = {},
+	) {
 
 	val keyboardController = LocalSoftwareKeyboardController.current
 
@@ -46,6 +50,7 @@ fun CustomOutlinedTextField(
 	val textFieldFocusedColor = colorResource(id = R.color.textfield_focused_color)
 	val borderUnFocusedColor = colorResource(id = R.color.textfield_border_unfocused_color)
 	val borderFocusedColor = colorResource(id = R.color.textfield_border_focused_color)
+	val errorColor = colorResource(id = R.color.textfield_border_error_color)
 
 	val focusRequester by remember { mutableStateOf(FocusRequester()) }
 
@@ -57,41 +62,55 @@ fun CustomOutlinedTextField(
 	// text와 focus를 체크하여 내부 background 색상을 관리하는 변수
 	var isActive by rememberSaveable { mutableStateOf(false) }
 
-	OutlinedTextField(
-		modifier = Modifier
-			.padding(paddingDp.dp)
-			.focusRequester(focusRequester)
-			.onFocusChanged {
-				isFocused = it.hasFocus
-				isActive = isFocused || textData.value.isNotEmpty()
-			}
-			.background(
-				color = if (isActive) textFieldFocusedColor else textFieldUnFocusedColor,
-				shape = RoundedCornerShape(6.dp))
-			.fillMaxWidth(),
-		value = textData.value,
-		visualTransformation = textVisualTransformation,
-		onValueChange = {
-			textData.value = it
-			valueChangeListener(it)
+	Column {
+		OutlinedTextField(
+			modifier = Modifier
+				.padding(paddingDp.dp)
+				.focusRequester(focusRequester)
+				.onFocusChanged {
+					isFocused = it.hasFocus
+					isActive = isFocused || textData.value.isNotEmpty()
+				}
+				.background(
+					color = if (isActive) textFieldFocusedColor else textFieldUnFocusedColor,
+					shape = RoundedCornerShape(6.dp))
+				.fillMaxWidth(),
+			value = textData.value,
+			visualTransformation = textVisualTransformation,
+			onValueChange = {
+				textData.value = it
+				valueChangeListener(it)
 
-			isActive = isFocused || textData.value.isNotEmpty()
-		},
-		placeholder = { Text(placeHolder) },
-		maxLines = 1,
-		textStyle = TextStyle(
-			fontSize = 16.sp,
-			color = Color.Black,
-			fontFamily = textFontFamily,
-			fontWeight = FontWeight.W500
-		),
-		keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
-		keyboardActions = KeyboardActions {
-			keyboardController?.hide()
-		},
-		colors = TextFieldDefaults.outlinedTextFieldColors(
-			focusedBorderColor = borderFocusedColor,
-			unfocusedBorderColor = borderUnFocusedColor
+				isActive = isFocused || textData.value.isNotEmpty()
+			},
+			placeholder = { Text(placeHolder) },
+			maxLines = 1,
+			textStyle = TextStyle(
+				fontSize = 16.sp,
+				color = Color.Black,
+				fontFamily = textFontFamily,
+				fontWeight = FontWeight.W500
+			),
+			keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+			keyboardActions = KeyboardActions {
+				keyboardController?.hide()
+			},
+			colors = TextFieldDefaults.outlinedTextFieldColors(
+				focusedBorderColor = borderFocusedColor,
+				unfocusedBorderColor = borderUnFocusedColor,
+				errorBorderColor = errorColor
+			),
+			isError = isError.value
 		)
-	)
+
+		if (isError.value && errorMsg.value.isNotEmpty()) {
+			Text(
+				text = errorMsg.value,
+				color = errorColor,
+				style = MaterialTheme.typography.body1,
+				modifier = Modifier.padding(start=3.dp, top = 2.dp)
+			)
+		}
+	}
+
 }
