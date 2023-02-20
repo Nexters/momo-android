@@ -1,6 +1,5 @@
 package com.ovn.momo.core.common_ui
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -14,10 +13,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.ovn.momo.R
+import com.ovn.momo.feature.theme.FontGray600
+import com.ovn.momo.feature.theme.MainColor
 
 @Composable
 fun MainRoundBorderButton(
@@ -25,14 +24,14 @@ fun MainRoundBorderButton(
 	heightDp: Int,
 	roundDp: Int,
 	btnEnabled: State<Boolean> = remember { mutableStateOf(true) },
-	clickEvent: () -> Unit) {
+	clickEvent: () -> Unit
+) {
 
-	Log.d("Check@@@", "${btnEnabled}")
 	Button(
 		onClick = { clickEvent() },
 		colors = ButtonDefaults.buttonColors(
-			backgroundColor = colorResource(id = R.color.main_color),
-			disabledBackgroundColor = colorResource(id = R.color.gray_600)
+			backgroundColor = MainColor,
+			disabledBackgroundColor = FontGray600
 		),
 		modifier = Modifier
 			.height(heightDp.dp)
