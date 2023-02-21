@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Momo</string>
+
+    <!--    SignUpScreen-->
+    <string name="signup_title_sub">간단한 출석체크</string>
+    <string name="signup_title">MDMY</string>
+    <string name="signup_email_text">이메일</string>
+    <string name="signup_email_textfield_placeholder">넥스터즈 가입 시 메일주소를 입력해주세요</string>
+    <string name="signup_pw_text">비밀번호</string>
+    <string name="signup_pw_textfield_placeholder">비밀번호를 입력해주세요</string>
+    <string name="signup_pw_check_textfield_placeholder">비밀번호 재입력해주세요</string>
+    <string name="signup_btn_text">가입하기</string>
+    <string name="signup_switch_login_sub_text">이미 가입했다면?</string>
+    <string name="signup_switch_login_text">로그인 하기</string>
+    <string name="signup_problem_text">로그인에 문제가 있나요?</string>
+    <string name="signup_problem_toast">운영진에게 문의해주세요</string>
 </resources>

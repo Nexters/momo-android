@@ -12,13 +12,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.ovn.momo.R
 import com.ovn.momo.R.color
 import com.ovn.momo.core.common_ui.CustomOutlinedTextField
 import com.ovn.momo.core.common_ui.MainRoundBorderButton
@@ -45,20 +46,20 @@ fun SignUpScreen(
 		Spacer(modifier = Modifier.height(62.dp))
 
 		Text(
-			text = "간단한 출석체크",
+			text = stringResource(id = R.string.signup_title_sub),
 			style = Typography.h1
 		)
 		Spacer(modifier = Modifier.height(10.dp))
 
 		Text(
-			text = "MDMY",
+			text = stringResource(id = R.string.signup_title),
 			color = Color.Black,
 			style = mdmyTextStyle
 		)
 		Spacer(modifier = Modifier.height(32.dp))
 
 		Text(
-			text = "이메일",
+			text = stringResource(id = R.string.signup_email_text),
 			style = Typography.body1,
 			fontWeight = FontWeight.Bold,
 			color = FontGray500,
@@ -66,7 +67,7 @@ fun SignUpScreen(
 		Spacer(modifier = Modifier.height(10.dp))
 
 		CustomOutlinedTextField(
-			placeHolder = "넥스터즈 가입 시 메일주소를 입력하세요.",
+			placeHolder = stringResource(id = R.string.signup_email_textfield_placeholder),
 			isError = viewModel.userEmailError.collectAsStateWithLifecycle(),
 			errorMsg = viewModel.userEmailErrorMsg.collectAsStateWithLifecycle()
 		) { email ->
@@ -76,7 +77,7 @@ fun SignUpScreen(
 		Spacer(modifier = Modifier.height(32.dp))
 
 		Text(
-			text = "비밀번호",
+			text = stringResource(id = R.string.signup_pw_text),
 			style = Typography.body1,
 			color = FontGray500,
 			fontWeight = FontWeight.Bold
@@ -85,7 +86,7 @@ fun SignUpScreen(
 		Spacer(modifier = Modifier.height(10.dp))
 
 		CustomOutlinedTextField(
-			placeHolder = "비밀번호를 입력해주세요",
+			placeHolder = stringResource(id = R.string.signup_pw_textfield_placeholder),
 			textVisualTransformation = PasswordVisualTransformation(),
 			isError = viewModel.userPwError.collectAsStateWithLifecycle(),
 		) { password ->
@@ -95,7 +96,7 @@ fun SignUpScreen(
 		Spacer(modifier = Modifier.height(10.dp))
 
 		CustomOutlinedTextField(
-			placeHolder = "비밀번호 재입력",
+			placeHolder = stringResource(id = R.string.signup_pw_check_textfield_placeholder),
 			textVisualTransformation = PasswordVisualTransformation(),
 			isError = viewModel.userPwError.collectAsStateWithLifecycle(),
 			errorMsg = viewModel.userPwErrorMsg.collectAsStateWithLifecycle()
@@ -106,7 +107,9 @@ fun SignUpScreen(
 		Spacer(modifier = Modifier.height(20.dp))
 
 		MainRoundBorderButton(
-			"가입하기", 60, 6
+			text = stringResource(id = R.string.signup_btn_text),
+			heightDp = 60,
+			roundDp = 6
 		) {
 
 			if (viewModel.isSignUpSuccess()) {
@@ -121,14 +124,14 @@ fun SignUpScreen(
 			horizontalArrangement = Arrangement.Center
 		) {
 			Text(
-				text = "이미 가입했다면?",
+				text = stringResource(id = R.string.signup_switch_login_sub_text),
 				color = FontGray600
 			)
 
 			Spacer(modifier = Modifier.width(10.dp))
 
 			Text(
-				text = "로그인 하기",
+				text = stringResource(id = R.string.signup_switch_login_text),
 				color = colorResource(color.black),
 				style = Typography.body1,
 				fontWeight = FontWeight.Bold,
@@ -145,14 +148,15 @@ fun SignUpScreen(
 			horizontalArrangement = Arrangement.Center,
 			modifier = Modifier.fillMaxWidth()
 		) {
+			val toastMsg = stringResource(id = R.string.signup_problem_toast)
 			Text(
-				text = AnnotatedString("로그인에 문제가 있나요?"),
+				text = stringResource(id = R.string.signup_problem_text),
 				style = Typography.body1,
 				fontWeight = FontWeight.Bold,
 				color = FontGray550,
 				modifier = Modifier
 					.clickable {
-						viewModel.setToastMessage("운영진에게 문의해주세요.")
+						viewModel.setToastMessage(toastMsg)
 					}
 			)
 		}
