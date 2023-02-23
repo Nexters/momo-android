@@ -1,11 +1,11 @@
 package com.ovn.momo.app
 
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.compose.composable
 import com.ovn.momo.core.navigation.AppComposeNavigator
 import com.ovn.momo.core.navigation.MomoScreens
-import androidx.navigation.compose.composable
 import com.ovn.momo.feature.login.MomoLogin
-import com.ovn.momo.feature.signup.MomoSignUp
+import com.ovn.momo.feature.signup.SignUpScreen
 
 
 fun NavGraphBuilder.momoHomeNavigation(
@@ -17,6 +17,6 @@ fun NavGraphBuilder.momoHomeNavigation(
 	}
 
 	composable(route = MomoScreens.SignUp.name) {
-		MomoSignUp(composeNavigator = composeNavigator)
+		SignUpScreen(composeNavigator = composeNavigator)
 	}
 }
