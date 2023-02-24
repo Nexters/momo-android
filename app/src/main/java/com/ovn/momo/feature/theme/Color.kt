@@ -17,8 +17,15 @@ val FocusedBorder = Color(0xFFD5CCEE)
 
 val Warning = Color(0xFFFF6464)
 
+val OccupationBg = Color(0xFFDEF1FF)
+val OccupationText = Color(0xFF7479E7)
+
+val AttendanceTextBorder = Color(0xFFEBEBEB)
+val AttendanceHistoryDivideLine = Color(0xFFF1F1F1)
 val AttendanceChecked = Color(0xFF7FCBE5)
 val AttendanceLate = Color(0xFFFFC531)
+val AttendanceAbsent = Color(0xFFFFEFEF)
+
 val NoticedAbsence = Color(0xFFFF8B32)
 
 val FontGray800 = Color(0xFF222222)

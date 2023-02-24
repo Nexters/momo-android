@@ -14,4 +14,8 @@
     <string name="signup_switch_login_text">로그인 하기</string>
     <string name="signup_problem_text">로그인에 문제가 있나요?</string>
     <string name="signup_problem_toast">운영진에게 문의해주세요</string>
+    
+    
+    <!--  ProfileScreen  -->
+    <string name="profile_topbar_text">나의 정보</string>
 </resources>
