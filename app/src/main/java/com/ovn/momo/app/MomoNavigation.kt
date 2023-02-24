@@ -6,6 +6,7 @@ import com.ovn.momo.core.navigation.AppComposeNavigator
 import com.ovn.momo.core.navigation.MomoScreens
 import com.ovn.momo.feature.login.MomoLogin
 import com.ovn.momo.feature.signup.SignUpScreen
+import com.ovn.momo.feature.signup.SignUpSecurityCodeScreen
 
 
 fun NavGraphBuilder.momoHomeNavigation(
@@ -18,5 +19,9 @@ fun NavGraphBuilder.momoHomeNavigation(
 
 	composable(route = MomoScreens.SignUp.name) {
 		SignUpScreen(composeNavigator = composeNavigator)
+	}
+	
+	composable(route = MomoScreens.SignUpSecurityCode.name) {
+		SignUpSecurityCodeScreen(composeNavigator = composeNavigator)
 	}
 }

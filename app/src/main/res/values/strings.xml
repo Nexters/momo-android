@@ -14,4 +14,11 @@
     <string name="signup_switch_login_text">로그인 하기</string>
     <string name="signup_problem_text">로그인에 문제가 있나요?</string>
     <string name="signup_problem_toast">운영진에게 문의해주세요</string>
+
+    <!-- SignUpSecurityCodeScreen -->
+    <string name="signup_security_code_topbar_text">회원가입</string>
+    <string name="signup_security_code_title">보안코드를\n입력해주세요.</string>
+    <string name="signup_security_code_title_msg">보안코드를 모를 경우 운영진에게 문의해주세요</string>
+    <string name="signup_security_code_textfield_placeholder">보안코드</string>
+
 </resources>
