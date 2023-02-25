@@ -1,4 +1,4 @@
-package com.ovn.momo.feature.admin
+package com.ovn.momo.feature.registerClub
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable

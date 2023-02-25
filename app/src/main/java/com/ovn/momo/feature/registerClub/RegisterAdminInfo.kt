@@ -1,4 +1,4 @@
-package com.ovn.momo.feature.admin
+package com.ovn.momo.feature.registerClub
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -8,6 +8,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -19,28 +20,25 @@ import com.ovn.momo.feature.theme.MomoTheme
 @Composable
 fun RegisterAdminInfo_Preview() {
 	MomoTheme {
-		val title = "활동기수를\n입력해주세요"
-		val description = "회원들이 가입시 등록할 코드를 정해주세요."
-		val buttonText = "다음"
-		RegisterAdminInfo(title, description, buttonText)
+		RegisterAdminInfo(R.string.register_admin_info_generation, buttonTextResId = R.string.next)
 	}
 }
 
 @Composable
-fun RegisterAdminInfo(title: String, description: String = "", buttonText: String, onClick: () -> Unit = {}) {
+fun RegisterAdminInfo(titleResId: Int, descriptionResId: Int = -1, buttonTextResId: Int, onClick: () -> Unit = {}) {
 	Column {
 		val horizontalPadding = Modifier.padding(horizontal = 24.dp)
 
 		TopBar(modifier = horizontalPadding, titleRedId = R.string.top_bar_title_register_session, onClickLeftButton = {})
 		Spacer(modifier = Modifier.padding(top = 68.dp))
-		Text(modifier = horizontalPadding, text = title, style = MaterialTheme.typography.h1)
+		Text(modifier = horizontalPadding, text = stringResource(id = titleResId), style = MaterialTheme.typography.h1)
 		Spacer(modifier = Modifier.padding(top = 8.dp))
-		Text(modifier = horizontalPadding, text = description)
+		Text(modifier = horizontalPadding, text = stringResource(id = descriptionResId))
 		Spacer(modifier = Modifier.padding(top = 91.dp))
 		TextField(modifier = horizontalPadding.fillMaxWidth(), value = "", onValueChange = {})
 		Spacer(modifier = Modifier.weight(1f))
 		CompleteButton(
-			modifier = horizontalPadding.padding(bottom = 18.dp), buttonText, onClick)
+			modifier = horizontalPadding.padding(bottom = 18.dp), stringResource(id = buttonTextResId), onClick)
 	}
 }
 

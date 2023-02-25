@@ -36,7 +36,12 @@ val Typography = Typography(
 		fontFamily = pretendard,
 		fontWeight = FontWeight.Normal,
 		fontSize = 14.sp
-	)
+	),
+	caption = TextStyle(
+		fontFamily = FontFamily.Default,
+		fontWeight = FontWeight.Normal,
+		fontSize = 12.sp
+	),
 )
 
 val mdmyTextStyle = TextStyle(

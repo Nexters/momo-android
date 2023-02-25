@@ -26,3 +26,5 @@ val FontGray700 = Color(0xFF4F505C)
 val FontGray600 = Color(0xFF727484)
 val FontGray550 = Color(0xFF999999)
 val FontGray500 = Color(0xFFB3B6C5)
+
+val Divider = Color(0xFFEFEFEF)

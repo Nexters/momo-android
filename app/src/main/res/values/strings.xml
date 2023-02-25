@@ -1,11 +1,26 @@
 <resources>
     <string name="app_name">Momo</string>
 
+    <string name="bottom_nav_title_session">세션관리</string>
+    <string name="bottom_nav_title_member">회원관리</string>
+    <string name="bottom_nav_title_manage_club">모임관리</string>
+
+    <string name="register_admin_info_generation">활동기수를\n입력해주세요</string>
+    <string name="register_admin_info_security_code">가입보안코드를\n등록해주세요</string>
+
+    <string name="next">다음</string>
+    <string name="confirm">확인</string>
+
     <string name="top_bar_title_start_session">활동시작</string>
     <string name="top_bar_title_register_session">세션등록</string>
     <string name="top_bar_title_register_place">장소등록</string>
-
     <string name="top_bar_delete">삭제</string>
+
+    <string name="session_empty">아직 세션이 없습니다</string>
+    
+    <string name="member_empty">아직 회원이 없습니다</string>
+    
+    <string name="mange_club_end_club">현재 기수를 종료할까요?</string>
 
     <string name="register_select_week">주차 선택</string>
     <string name="register_title">대표타이틀</string>
