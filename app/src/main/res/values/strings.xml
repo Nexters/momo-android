@@ -11,6 +11,11 @@
     <string name="check_code">출석 체크 코드 %s</string>
     <string name="week_title">%s주차</string>
 
+    <string name="day_tag_d_3">D-3</string>
+    <string name="day_tag_d_2">D-2</string>
+    <string name="day_tag_d_1">D-1</string>
+    <string name="day_tag_today">Today</string>
+
     <string name="next">다음</string>
     <string name="confirm">확인</string>
 

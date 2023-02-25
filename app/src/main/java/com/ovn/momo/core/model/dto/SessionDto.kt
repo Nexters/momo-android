@@ -5,9 +5,10 @@ data class SessionDto(
 	val title: String?,
 	val week: Int,
 	val content: String?,
-	val startAt: String,
-	val endAt: String,
-	val address: String,
-	val attendanceStartedAt: String,
-	val attendanceClosedAt: String
+	val startAt: String?,
+	val endAt: String?,
+	val address: String?,
+	val attendanceStartedAt: String?,
+	val attendanceClosedAt: String?,
+	val checkCode: String?
 )
