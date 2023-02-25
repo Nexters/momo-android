@@ -17,6 +17,9 @@ sealed class MomoScreens(
 	// login screen
 	object SignUp : MomoScreens("signup")
 
+	// attendance screen
+	object Attendance : MomoScreens("attendance")
+
 	companion object {
 		const val argument_channel_id = "channelId"
 	}
