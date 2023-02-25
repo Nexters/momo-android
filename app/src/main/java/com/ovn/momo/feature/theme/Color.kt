@@ -3,11 +3,12 @@ package com.ovn.momo.feature.theme
 import androidx.compose.ui.graphics.Color
 
 val MainColor = Color(0xFF946BEA)
+val BackMainColor = Color(0xFFDFD0FF)
 
 val Background = Color(0xFFF6F6F6)
 val TextBox1 = Color(0xFFF8F8F9)
 val TextBox2 = Color(0xFFF8F8FE)
-val PastBox = Color(0xFFF8F8FE)
+val PastBox = Color(0xFFE7E8EC)
 
 val UnFocusedBox = Color(0xFFF8F8F9)
 val FocusedBox = Color(0xFFF8F8FE)
@@ -27,4 +28,4 @@ val FontGray600 = Color(0xFF727484)
 val FontGray550 = Color(0xFF999999)
 val FontGray500 = Color(0xFFB3B6C5)
 
-val Divider = Color(0xFFEFEFEF)
+val ColorDivider = Color(0xFFEFEFEF)

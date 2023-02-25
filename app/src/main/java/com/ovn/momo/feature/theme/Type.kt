@@ -10,36 +10,43 @@ val Typography = Typography(
 	h1 = TextStyle(
 		fontFamily = FontFamily.Default,
 		fontWeight = FontWeight.Bold,
+		color = FontGray800,
 		fontSize = 28.sp
 	),
 	h2 = TextStyle(
 		fontFamily = FontFamily.Default,
 		fontWeight = FontWeight.Normal,
+		color = FontGray800,
 		fontSize = 24.sp
 	),
 	h3 = TextStyle(
 		fontFamily = FontFamily.Default,
 		fontWeight = FontWeight.Normal,
+		color = FontGray800,
 		fontSize = 20.sp
 	),
 	h4 = TextStyle(
 		fontFamily = FontFamily.Default,
 		fontWeight = FontWeight.Normal,
+		color = FontGray800,
 		fontSize = 18.sp
 	),
 	body1 = TextStyle(
 		fontFamily = pretendard,
 		fontWeight = FontWeight.Normal,
+		color = FontGray800,
 		fontSize = 16.sp
 	),
 	body2 = TextStyle(
 		fontFamily = pretendard,
 		fontWeight = FontWeight.Normal,
+		color = FontGray800,
 		fontSize = 14.sp
 	),
 	caption = TextStyle(
 		fontFamily = FontFamily.Default,
 		fontWeight = FontWeight.Normal,
+		color = FontGray800,
 		fontSize = 12.sp
 	),
 )

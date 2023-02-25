@@ -12,7 +12,7 @@ fun AdminScreen() {
 	val navController = rememberNavController()
 
 	Scaffold(bottomBar = { AdminBottomNavigation(navController) }) {
-		Box(Modifier.padding(it)) {
+		Column(Modifier.padding(it)) {
 			AdminNavHost(navController = navController)
 		}
 	}

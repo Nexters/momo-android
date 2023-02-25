@@ -13,6 +13,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ovn.momo.R
+import com.ovn.momo.feature.admin.TopBar
 import com.ovn.momo.feature.theme.MomoTheme
 
 
@@ -29,7 +30,7 @@ fun RegisterAdminInfo(titleResId: Int, descriptionResId: Int = -1, buttonTextRes
 	Column {
 		val horizontalPadding = Modifier.padding(horizontal = 24.dp)
 
-		TopBar(modifier = horizontalPadding, titleRedId = R.string.top_bar_title_register_session, onClickLeftButton = {})
+		TopBar(titleResId = R.string.top_bar_title_register_session, onClickLeftButton = {})
 		Spacer(modifier = Modifier.padding(top = 68.dp))
 		Text(modifier = horizontalPadding, text = stringResource(id = titleResId), style = MaterialTheme.typography.h1)
 		Spacer(modifier = Modifier.padding(top = 8.dp))

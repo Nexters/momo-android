@@ -8,6 +8,14 @@
     <string name="register_admin_info_generation">활동기수를\n입력해주세요</string>
     <string name="register_admin_info_security_code">가입보안코드를\n등록해주세요</string>
 
+    <string name="check_code">출석 체크 코드 %s</string>
+    <string name="week_title">%s주차</string>
+
+    <string name="day_tag_d_3">D-3</string>
+    <string name="day_tag_d_2">D-2</string>
+    <string name="day_tag_d_1">D-1</string>
+    <string name="day_tag_today">Today</string>
+
     <string name="next">다음</string>
     <string name="confirm">확인</string>
 
