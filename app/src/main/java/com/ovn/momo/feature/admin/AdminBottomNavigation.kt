@@ -19,7 +19,7 @@ import androidx.navigation.compose.rememberNavController
 import com.ovn.momo.core.navigation.AdminNavHost
 import com.ovn.momo.core.navigation.AdminNavItem
 import com.ovn.momo.core.utils.noRippleClickable
-import com.ovn.momo.feature.theme.Divider
+import com.ovn.momo.feature.theme.ColorDivider
 import com.ovn.momo.feature.theme.FontGray500
 import com.ovn.momo.feature.theme.Typography
 
@@ -51,7 +51,7 @@ fun BottomBar(navController: NavHostController) {
 		Divider(
 			modifier = Modifier
 				.height(1.dp)
-				.background(Divider))
+				.background(ColorDivider))
 		Row(
 			modifier = Modifier
 				.fillMaxWidth()
