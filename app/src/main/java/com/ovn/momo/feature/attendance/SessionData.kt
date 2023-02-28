@@ -2,6 +2,7 @@ package com.ovn.momo.feature.attendance
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -20,7 +21,10 @@ import com.ovn.momo.feature.theme.FontGray800
 import com.ovn.momo.feature.theme.Typography
 
 @Composable
-fun SessionData() {
+fun SessionData(
+	onSessionShow: () -> Unit
+) {
+
 	Column(
 		modifier = Modifier
 			.padding(horizontal = 24.dp),
@@ -124,7 +128,10 @@ fun SessionData() {
 			Row(
 				modifier = Modifier
 					.weight(1f)
-					.fillMaxHeight(),
+					.fillMaxHeight()
+					.clickable {
+						onSessionShow()
+					},
 				verticalAlignment = Alignment.CenterVertically,
 				horizontalArrangement = Arrangement.Center,
 			) {
