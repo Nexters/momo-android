@@ -21,6 +21,7 @@
 
     <string name="top_bar_title_start_session">활동시작</string>
     <string name="top_bar_title_register_session">세션등록</string>
+    <string name="top_bar_title_register_member">회원등록</string>
     <string name="top_bar_title_register_place">장소등록</string>
     <string name="top_bar_delete">삭제</string>
 
@@ -29,6 +30,22 @@
     <string name="member_empty">아직 회원이 없습니다</string>
     
     <string name="mange_club_end_club">현재 기수를 종료할까요?</string>
+
+    <string name="attendance_present">정상출석</string>
+    <string name="attendance_late">지각</string>
+    <string name="attendance_absent">무단결석</string>
+    <string name="attendance_noticed_absent">통보결석</string>
+
+    <string name="attendance_generation">%s기</string>
+
+    <string name="member_tab_title_member">회원</string>
+    <string name="member_tab_title_attendance">출석</string>
+
+    <string name="member_disable">비활성화</string>
+
+    <string name="member_title_sort_by_name">이름순</string>
+    <string name="member_title_register_member">회원등록</string>
+    <string name="member_title_reset_all">전체 초기화</string>
 
     <string name="register_select_week">주차 선택</string>
     <string name="register_title">대표타이틀</string>

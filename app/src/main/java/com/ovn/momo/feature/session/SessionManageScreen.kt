@@ -17,14 +17,14 @@ import com.ovn.momo.feature.theme.*
 
 @Preview
 @Composable
-fun SessionScreen_Preview() {
+fun SessionManageScreen_Preview() {
 	MomoTheme {
-		SessionScreen()
+		SessionManageScreen()
 	}
 }
 
 @Composable
-fun SessionScreen() {
+fun SessionManageScreen() {
 	Surface(
 		modifier = Modifier
 			.fillMaxSize()

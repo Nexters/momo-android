@@ -20,7 +20,8 @@ val Warning = Color(0xFFFF6464)
 
 val AttendanceChecked = Color(0xFF7FCBE5)
 val AttendanceLate = Color(0xFFFFC531)
-val NoticedAbsence = Color(0xFFFF8B32)
+val AttendanceAbsent = Color(0xFFFF6464)
+val AttendanceNoticedAbsent = Color(0xFFFF8B32)
 
 val FontGray800 = Color(0xFF222222)
 val FontGray700 = Color(0xFF4F505C)
